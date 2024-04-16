@@ -10,6 +10,7 @@ def main():
     screen = pg.display.set_mode((800, 600))        #サイズを(800,600)にする
     clock  = pg.time.Clock()                        
     bg_img = pg.image.load("fig/pg_bg.jpg")         #背景画像の選択
+    bg_img2 = pg.transform.flip(bg_img,True,False)
     bg_x = 0
 
     kt_img = pg.image.load("fig/3.png")             #こうかとんの画像のロード
@@ -21,11 +22,12 @@ def main():
             if event.type == pg.QUIT: return        
 
         screen.blit(bg_img, [bg_x, 0])              #背景の場所設定
+        screen.blit(bg_img2,[bg_x+1600,0])
         screen.blit(kt_img,[300,200])               #こうかとんの場所指定
         pg.display.update()                         #表示
         print(bg_x)
         bg_x -= 1                                   #背景のX座標を1ずつ増加
-        if(bg_x<=-1600):                             #背景のX座標が1600以上の場合
+        if(bg_x<=-2400):                             #背景のX座標が1600以上の場合
             bg_x=0                                  #背景のX座標をリセットする
         tmr += 1                                    
         clock.tick(200)                             #FPSを200に設定

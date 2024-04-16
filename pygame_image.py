@@ -23,11 +23,12 @@ def main():
 
         screen.blit(bg_img, [bg_x, 0])              #背景の場所設定
         screen.blit(bg_img2,[bg_x+1600,0])
+        screen.blit(bg_img,[bg_x+3200,0])
         screen.blit(kt_img,[300,200])               #こうかとんの場所指定
         pg.display.update()                         #表示
         print(bg_x)
         bg_x -= 1                                   #背景のX座標を1ずつ増加
-        if(bg_x<=-2400):                             #背景のX座標が1600以上の場合
+        if(bg_x<=-3200):                             #背景のX座標が1600以上の場合
             bg_x=0                                  #背景のX座標をリセットする
         tmr += 1                                    
         clock.tick(200)                             #FPSを200に設定
